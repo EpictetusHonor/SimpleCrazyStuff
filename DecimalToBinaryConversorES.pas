@@ -68,4 +68,5 @@ begin
 end;
 begin
 	creaYMuestraBinarios;
+ 	readln;
 end.
