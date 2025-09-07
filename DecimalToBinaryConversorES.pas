@@ -14,7 +14,7 @@ begin
 		list:=lsig;
 	end;
 end;
-procedure agregarAtras(var l:lista;d:integer); //add after, adding nodes after nodes
+procedure agregarAdelante(var l:lista;d:integer); //add before, adding nodes after nodes
 var n:lista;
 begin
 	new(n);
@@ -27,7 +27,7 @@ var b:integer;
 begin
 	b:=n mod 2;
 	if n <> 0 then begin
-		agregarAtras(bin,b);
+		agregarAdelante(bin,b);
 		n:=n div 2;
 		convR(bin,n);
 	end;
