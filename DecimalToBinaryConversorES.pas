@@ -1,18 +1,17 @@
 program conversorDecimalBinarios;
+uses crt;
 type
 	lista = ^nodo;
 	nodo = record
 		dato:integer;
 		sig:lista;
 	end;
-procedure liberaMemoria(var list:lista); //in here i dispose all the spaces for doing the things great!
-var lsig:lista;
+procedure clearscreen;
+var
+  i: integer;
 begin
-	while list<>nil do begin
-		lsig:=list^.sig;
-		dispose(list);
-		list:=lsig;
-	end;
+  for i := 1 to 50 do
+    writeln;
 end;
 procedure agregarAdelante(var l:lista;d:integer); //add before, adding nodes after nodes
 var n:lista;
@@ -52,17 +51,20 @@ var
 	numero:integer;
 	binarios:lista;
 begin
-	binarios:=nil;
 	writeln('-----------------------------------');
 	writeln('Conversor de "Decimal" a "Binario".');
 	writeln('-----------------------------------');
 	writeln;
 	write('Escriba numero a convertir (o el 0 para salir): '); //this works while the user don't input 0.
 	readln(numero);
-	while numero<>0 do begin
+	while numero<>0 do begin 
+	    binarios:=nil;
 		convR(binarios,numero);
 		muestraYLibera(binarios);
 		writeln;
+		writeln('Presione ENTER.');
+		readln;
+		clrscr;
 		write('Escriba numero a convertir (o el 0 para salir): ');
 		readln(numero);
 	end;
