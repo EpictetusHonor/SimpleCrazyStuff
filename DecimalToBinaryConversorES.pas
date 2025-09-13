@@ -32,13 +32,16 @@ begin
 		convR(bin,n);
 	end;
 end;
-procedure muestra(bin:lista);
+procedure muestraYLibera(bin:lista);
+var ant:lista;
 begin
 	writeln;
 	writeln('-------------------------------------'); 
 	while bin<>nil do begin
-		write(bin^.dato,' ');
+		ant:=bin;
+  		write(bin^.dato,' ');
 		bin:=bin^.sig;
+  		dispose(ant);
 	end;
 	writeln;
 	writeln('-------------------------------------'); 
@@ -58,8 +61,7 @@ begin
 	readln(numero);
 	while numero<>0 do begin
 		convR(binarios,numero);
-		muestra(binarios);
-		liberaMemoria(binarios);
+		muestraYLibera(binarios);
 		writeln;
 		write('Escriba numero a convertir (o el 0 para salir): ');
 		readln(numero);
